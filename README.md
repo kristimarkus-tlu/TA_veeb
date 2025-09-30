@@ -1,13 +1,12 @@
 # TA Veebiprogrammeerimine 2025
 
-See projekt on õppetöö raames loodud veebileht, mis sisaldab järgmisi funktsionaalsusi:
+See projekt on õppetöö raames loodud veebileht, mis sisaldab järgmisi lehti:
 
-- Avaleht koos bänneri ja tutvustusega
-- Ajainfo leht
+- Avaleht
+- Ajainfo
 - Vanasõnade nimekiri
-- Külastajate registreerimine ja logimine
+- Külastajate logimine
 - Külaliste nimekiri ja counter
-- Rongikujutis HTML/CSS abil
 
 ## Nõuded
 
