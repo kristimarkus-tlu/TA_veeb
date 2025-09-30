@@ -1,6 +1,6 @@
 # TA Veebiprogrammeerimine 2025
 
-See projekt on Kristi Markuse õppetöö raames loodud veebileht, mis sisaldab järgmisi funktsionaalsusi:
+See projekt on õppetöö raames loodud veebileht, mis sisaldab järgmisi funktsionaalsusi:
 
 - Avaleht koos bänneri ja tutvustusega
 - Ajainfo leht
@@ -42,3 +42,5 @@ node index.js
 ```bash
 http://localhost:5203
 ```
+
+## Autor: Kristi Markus
