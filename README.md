@@ -27,7 +27,8 @@ cd TA_veeb
 2. **Paigalda vajalikud paketid:**
 
 ```bash
-npm install
+npm install express
+npm install ejs
 ```
 
 3. **Käivita server:**
