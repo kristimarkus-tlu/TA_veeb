@@ -29,10 +29,6 @@ cd TA_veeb
 ```bash
 npm install express
 npm install ejs
-
-või korraga:
-
-npm install express ejs
 ```
 
 3. **Käivita server:**
