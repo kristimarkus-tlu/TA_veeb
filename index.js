@@ -73,11 +73,17 @@ app.post("/regvisit", (req, res) => {
                     }
                     else {
                         console.log("Salvestatud!");
-                        res.render("regvisit");
+                        res.render("saved", {
+                            fullName: req.body.firstNameInput + " " + req.body.lastNameInput
+                        });
                     }
                 });
         }
     });
+});
+
+app.get("/saved", (req, res) => {
+    res.render("saved");
 });
 
 app.get("/kulastajad", (req, res) => {
