@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html, body {  
     margin: 0; /* eemaldab vaikimisi ääremarginaali */
     padding: 0; /* eemaldab vaikimisi paddingu */
@@ -273,3 +274,347 @@ ul.ajainfo li {
 }
 
 
+=======
+html, body {  
+    margin: 0; /* eemaldab vaikimisi ääremarginaali */
+    padding: 0; /* eemaldab vaikimisi paddingu */
+    font-family: "Press Start 2P", monospace; /* seab kirjastiiliks monospace, teine monospace võtab osade browserite vaikimisi väiksema monospace kuvamise ära */
+    color: #fff; /* määrab teksti värviks valge */
+    text-align: center; /* joondab vaikimisi teksti keskele */
+    min-height: 100vh;            /* veendu, et body katab kogu vaate */
+    background: linear-gradient(135deg, #ff00ff, #ff6600, #00ccff);
+    background-attachment: fixed; /* gradient jääb fikseerituks taustaks */
+    background-size: cover;       /* katab kogu pinna, ei tee kordusi */
+
+}  
+
+.container {  
+    max-width: auto; /* max-laius "auto" (sisuliselt ei piira laiust) */
+    margin: 0 auto; /* keskele joondus (horisontaalselt) */
+    padding: 0 10px; /* lisab 10px sisemist ruumi vasakule ja paremale */
+}  
+
+img.banner, .welcomepicture {  
+    width: 100%; /* banner-pilt võtab kogu konteineri laiuse */
+}  
+
+ul {  
+    list-style-type: none; /* eemaldab loendi täpid/numbrid */
+    padding: 0; /* eemaldab sisemise ääre */
+    margin: 20px auto; /* 20px marginaali üleval/all, horisontaalselt keskel */
+    display: flex; /* muudab loendi flex konteineriks (üksteise all) block oleks kõrvuti vist */
+    justify-content: center; /* elemendid joondatakse keskele */
+    gap: 15px; /* vahe elementide vahel */
+    flex-wrap: wrap; /* allow wrapping */
+}  
+
+.ajainfo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+ol {
+    justify-content: center;
+    list-style: none; /* eemaldab automaatsed numbrid */
+    padding-left: 0;  /* eemaldab vasaku taustamarginaali */
+}
+
+.positionName {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.vanasonad {  
+    display: block; /* element käitub plokk-elemendina (mdea, see paneb need lsslt üksteise alla*/
+}  
+
+/* lingid Ajainfo, Vanasõnad, Külastus, Külastajad*/
+ul li a {  
+    background-color: yellow; /* hall taust lehtede linkidel*/
+    padding: 8px 15px; /* sisemine ruum ülal/alas 8px, külgedel 15px */
+    text-shadow: 2px 2px 0px #fb64fb, -0.5px -0.5px 0px #00ccff;
+    color: blue;
+    transition: background-color 0.3s; /* sujuv taustavärvi muutus hoveril */
+    display: inline-block; /* ensures no overlap */
+}  
+
+a {  
+    color: blue; /* linkide TEKSTI värv roosa */
+    text-decoration: none; /* eemaldab allajoonimise */
+    font-weight: bold; /* muudab teksti paksuks */
+}
+
+ul li a:hover {  
+    background-color: #f38196; /* hiirega üle minnes roosa taust */
+    color: white; /* ja tekst muutub valgeks */
+}  
+
+input[type=text] {  
+    width: 100%; /* sisestusväli võtab kogu laiuse */
+    padding: 12px; /* lisab sisemist ruumi */
+    margin: 10px 0; /* vahe üleval ja all 10px */
+    box-sizing: border-box; /* padding arvestatakse elemendi laiusesse */
+}  
+
+h2 {  
+    text-align: center; /* h2 pealkirjad keskele joondatud */
+    color: yellow; /* roosa teksti värv */
+    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ccff;
+}  
+
+h1 {  
+    margin-top: 20px; /* ülemine vahe 20px */
+    margin-bottom: 10px; /* alumine vahe 10px */
+    font-size: 2rem; /* suurus 2rem */
+    color: yellow; /* roosa teksti värv */
+    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ccff;
+}  
+
+p {  
+    line-height: 1.6; /* rea kõrgus paremaks loetavuseks */
+    margin-bottom: 20px; /* alumine vahe 20px */
+}  
+
+form {  
+    background: yellow;
+    padding: 20px; /* sisemine vahe 20px */
+    max-width: 400px; /* vormi maksimaalne laius */
+    margin: 20px auto; /* keskele ja vahe 20px üleval/all */
+    text-align: left; /* tekst vasakule joondatud */
+    color: black;
+}  
+
+label {  
+    font-weight: bold; /* tekst paksuks */
+}  
+
+input[type=text], input[type=submit] {  
+    width: 100%; /* mõlemad võtavad 100% laiuse */
+    padding: 10px; /* sisemine ruum */
+    margin-top: 8px; /* vahe üleval 8px */
+    margin-bottom: 16px; /* vahe all 16px */
+    border: none; /* eemaldab piiri */
+    font-family: "Press Start 2P", monospace;
+}  
+
+input[type=text],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: none;
+  box-sizing: border-box;
+}
+
+input[type=text] {  
+    background: white; /* hall taust */
+    color: black; /* tekst must */
+}  
+
+input[type=submit] {  
+    background: #ff00ff; /* roosa taust */
+    color: white; /* valge tekst */
+    font-weight: bold; /* paks kiri */
+    cursor: pointer; /* muutub peale minnes hiirega klikitavaks käe-ikooniks */
+    transition: background 0.3s; /* sujuv hover efekt */
+}  
+
+input[type=submit]:hover {  
+    background: #d4687d; /* tumedam roosa hoveril */
+}  
+
+ul.kulastajatenimed {  
+    border-radius: 4px;
+    margin: 8px 0; /* vahe üleval/all 8px */
+    padding: 20px; /* sisemine ruum */
+    display: block; /* plokk-element */
+}  
+
+/* ===== Retro train skin (lihtne, ainult stiil) ===== */
+
+/* värvipalet */
+:root{
+  --retro-1: #ffd400; /* kollane */
+  --retro-2: #ff66cc; /* roosa */
+  --retro-3: #00e5ff; /* tsüaan */
+  --retro-4: #2b2b2b; /* tume serv */
+  --retro-shadow: rgba(0,0,0,0.45);
+}
+
+/* üldine rongi raam (pisut madalam varju ja tugev kontrast) */
+.train {
+  display: flex;       /* hoiab sinu loogika samana */
+  gap: 10px;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 20px;
+  /* väike "pixel" effekt: selge serv all */
+  filter: drop-shadow(0 6px 0 var(--retro-shadow));
+}
+
+/* vedur + vagun */
+.engine, .carriage {
+  position: relative;
+  width: auto;    /* säilita originaalid, kui oled määranud mujal */
+  border-radius: 4px;              /* pehme 8-bit nurk (väike) */
+  padding: 0;
+  /* triibuline 8-bit stiil — väike ribimuster */
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--retro-1) 0 10px,
+    var(--retro-2) 10px 20px,
+    var(--retro-3) 20px 30px
+  );
+  background-size: 30px 100%;
+  border: 3px solid var(--retro-4); /* tugev serv */
+  box-shadow:
+    0 6px 0 rgba(0,0,0,0.45),         /* alt varju "plaat" */
+    0 0 10px rgba(255,102,204,0.12);  /* õrn neon sära */
+  min-width: 100px;  /* veidi kaitset, kui laius määramata */
+  min-height: 40px;  /* kaitse kõrguse puhul */
+}
+
+/* veduri kuppel (jätame olemasolevale ::before, aga värvame) */
+.engine::before {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 12px;
+  width: 28px;
+  height: 18px;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--retro-2), var(--retro-1));
+  border: 2px solid var(--retro-4);
+  box-shadow: 0 4px 0 rgba(0,0,0,0.35);
+}
+
+/* vagunite suurus kui sul on juba määratud, võid jätta samaks */
+.engine { width: 120px; height: 60px; }
+.carriage { width: 100px; height: 50px; }
+
+/* ratta üldstiil - lisame sisemise rõnga ja tugeva äärise */
+.wheel {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -11px;
+  background: radial-gradient(circle at 40% 40%, #222 35%, #000 36%),
+              radial-gradient(circle at 60% 60%, #444 40%, #222 41%);
+  border: 3px solid #111;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.45), 0 0 8px rgba(0,229,255,0.06);
+}
+
+/* väike positsioneerimisnipid (kõrvalrataste pisut eredam äär) */
+.wheel.left  { left: 10px; }
+.wheel.right { right: 10px; }
+
+/* kui tahad vagunitele erinevat värvi igaühele — lisa klassid HTML-is (näide stiil): */
+/* .carriage.yellow { background-image: repeating-linear-gradient(90deg, #ffd400 0 12px, #ffcc33 12px 24px); } */
+
+/* mobiil: vähenda suuri servasid ja hoia kõik korrektne */
+@media (max-width: 480px) {
+  .engine, .carriage {
+    min-width: 70px;
+    min-height: 40px;
+    border-width: 2px;
+    border-radius: 3px;
+  }
+  .wheel { width: 18px; height: 18px; bottom: -9px; border-width: 2px; }
+}
+
+
+
+nav ul {  
+    display: flex; /* nav loend on flex */
+    gap: 15px; /* vahe linkide vahel */
+    list-style: none; /* eemaldab täpid */
+    margin: 0; /* eemaldab marginaali */
+    padding: 0; /* eemaldab paddingu */
+    flex-wrap: wrap; /* lingid murtakse uuele reale, kui ruumi pole */
+}  
+
+nav ul li a {  
+    background-color: #444; /* hall taust */
+    padding: 8px 12px; /* sisemine ruum */
+    border-radius: 5px; /* ümarad nurgad */
+    color: white; /* valge tekst */
+    font-weight: bold; /* paks kiri */
+    text-decoration: none; /* allajoon eemaldatud */
+    transition: background 0.3s; /* sujuv hover efekt */
+}  
+/*
+@media (max-width: 600px) { /* reeglid mobiilivaates kuni 600px laiusega  
+    header {  
+        flex-direction: column; /* elemendid veergu 
+        align-items: flex-start; /* vasakule joondatud 
+    }  
+
+    nav ul {  
+        flex-direction: column; /* lingid üksteise alla 
+        gap: 10px; /* vahe linkide vahel 
+        width: 100%; /* kogu laius 
+        justify-content: flex-start; /* vasakule joondatud 
+    }  
+
+    nav ul li a {  
+        width: 100%; /* lingid võtavad kogu laiuse 
+        text-align: left; /* tekst vasakule joondatud 
+        padding: 6px 10px; /* veidi väiksem padding 
+        font-size: 0.9rem; /* väiksem font 
+    }  
+}*/
+ul.ajainfo {
+  display: block; /* üksteise all */
+  /* list-style: none;  kui ei taha täppe aga eelnevalt täpid juba ära võetud */
+  padding: 0;
+  margin: 0;
+}
+
+ul.ajainfo li {
+  margin: 5px 0; /* vahe ridade vahel */
+}
+
+nav ul.menu {
+  display: flex;
+  flex-wrap: wrap; /* <-- lubab linkidel minna järgmisele reale */
+  justify-content: center;
+  list-style: none;
+  gap: 10px;
+  padding: 0;
+  margin: 10px auto;
+}
+
+nav ul.menu li a {
+  background-color: yellow;
+  color: blue;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  text-shadow: 2px 2px 0px #fb64fb, -0.5px -0.5px 0px #00ccff;
+}
+
+nav ul.menu li a:hover {
+  background-color: #f38196;
+  color: white;
+}
+
+/* Väikese ekraani korral */
+@media (max-width: 600px) {
+  nav ul.menu {
+    flex-direction: column; /* lingid lähevad üksteise alla */
+    align-items: center; /* joondame keskele */
+    gap: 8px;
+  }
+
+  nav ul.menu li a {
+    display: block;
+    width: 90%; /* teeb lingid suuremaks ja loetavamaks */
+    text-align: center;
+  }
+}
+
+>>>>>>> a7ada98 (new stuff)

@@ -17,6 +17,11 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.10",
+<<<<<<< HEAD
     "express": "^5.1.0"
+=======
+    "express": "^5.1.0",
+    "mysql2": "^3.15.1"
+>>>>>>> a7ada98 (new stuff)
   }
 }
