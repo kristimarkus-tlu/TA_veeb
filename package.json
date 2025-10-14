@@ -16,6 +16,8 @@
   "author": "Kristi Markus",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.1"
   }
 }

@@ -1,0 +1,66 @@
+<!DOCTYPE html> 
+<html lang="et"> 
+<head>
+	<meta charset="utf-8">
+	<title>Kristi Markus</title>
+	<link rel="stylesheet" href="../css.css">
+</head>
+<body>
+	<img src="/images/vp_banner_2025_TA.jpg" alt="veebiprogrammeerimise 2025 aasta kursuse banner!" class="banner">
+	<div class="train">
+        <div class="engine">
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>
+        <div class="carriage">
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>
+        <div class="carriage">
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>
+	</div>
+	<hr>
+	<div class="container">
+		<h1>Kristi Markus, veebiprogrammeerimine</h1>
+		<p>See leht on loodud õppetöö raames <a href="https://www.tlu.ee/">Tallinna Ülikoolis</a>, Digitehnoloogiate instituudis ja ei sisalda tõsiseltvõetavat materjali!</p>
+    </div>
+		<hr>
+		<ul class="menu">
+			<li><a href="/">Avaleht</a></li>
+            <li><a href="/ajainfo">Ajainfo</a></li>
+			<li><a href="/vanasonad">Vanasõnad</a></li>
+			<li><a href="/kulastused">Külastajad</a></li>
+            <li><a href="/eestifilm">Eesti film</a></li>
+		</ul>
+		<hr>
+	</div>
+    <h2>Eesti filmiinimesed</h2>
+    <ul>
+        <li><a href="/eestifilm">Tagasi</a></li>
+    </ul>
+    <ul>
+        <li><a href="/eestifilm/filmiinimesed_add">Eesti filmiinimeste lisamine</a></li>
+    </ul>
+    <%
+        function formatDate(dateStr) {
+        const d = new Date(dateStr);
+        const day = String(d.getDate()).padStart(2, '0');
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const year = d.getFullYear();
+        return `${day}.${month}.${year}`;
+        }
+        %>
+        <ol>
+        <% personList.forEach(function(listItem) { %>
+            <li>
+            <%= listItem.first_name %> <%= listItem.last_name %> — 
+            Sünnikuupäev: <%= formatDate(listItem.born) %><% if (listItem.deceased) { %>,
+                Surmakuupäev: <%= formatDate(listItem.deceased) %>
+            <% } %>
+            </li>
+        <% }); %>
+        </ol>
+</body>
+</html>

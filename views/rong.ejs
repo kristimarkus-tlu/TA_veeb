@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<title>Kristi Markus</title>
+<style>
+body {
+    background-color: #343434;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.train {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+/* Vedur */
+.engine {
+    background-color: #f38196;
+    width: 120px;
+    height: 60px;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Veduri toru */
+.engine::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    width: 30px;
+    height: 20px;
+    background-color: #f38196;
+    border-radius: 5px 5px 0 0;
+}
+
+/* Rattad */
+.wheel {
+    width: 20px;
+    height: 20px;
+    background-color: #444;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -10px;
+}
+
+.wheel.left {
+    left: 10px;
+}
+
+.wheel.right {
+    right: 10px;
+}
+
+/* Vagunid */
+.carriage {
+    background-color: #f38196;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.carriage .wheel {
+    bottom: -10px;
+}
+</style>
+</head>
+<body>
+
+<div class="train">
+    <div class="engine">
+        <div class="wheel left"></div>
+        <div class="wheel right"></div>
+    </div>
+    <div class="carriage">
+        <div class="wheel left"></div>
+        <div class="wheel right"></div>
+    </div>
+    <div class="carriage">
+        <div class="wheel left"></div>
+        <div class="wheel right"></div>
+    </div>
+</div>
+
+</body>
+</html>
+

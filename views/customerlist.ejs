@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html lang="et"> 
+<head>
+	<meta charset="utf-8">
+	<title>Kristi Markus</title>
+	<link rel="stylesheet" href="/css.css">
+</head>
+<body>
+	<img src="/images/vp_banner_2025_TA.jpg" alt="veebiprogrammeerimise 2025 aasta kursuse banner!" class="banner">
+	<div class="train">
+        <div class="engine">
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>
+        <div class="carriage">
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>
+        <div class="carriage">
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>   
+    </div>
+    <hr>
+    <div class="container">
+        <h1>Kristi Markus, veebiprogrammeerimine</h1>
+	    <p>See leht on loodud õppetöö raames <a href="https://www.tlu.ee/">Tallinna Ülikoolis</a>, Digitehnoloogiate instituudis ja ei sisalda tõsiseltvõetavat materjali!</p>
+        <hr>
+	    <ul class="menu">
+		    <li><a href="/">Avaleht</a></li>
+            <li><a href="/ajainfo">Ajainfo</a></li>
+			<li><a href="/vanasonad">Vanasõnad</a></li>
+			<li><a href="/kulastused">Külastajad</a></li>
+            <li><a href="/eestifilm">Eesti film</a></li>
+	    </ul>
+        <hr>
+        <h2><%= heading %></h2>
+        <ol class="kulastajatenimed">
+            <% listDataK.forEach(function(listItem) { %>
+                <li>
+                <%= listItem %>
+            <% }); %>
+            </li>
+        </ol>
+        <p>Külastusi kokku: <%= count %></p>
+    </div>
+</body>
+</html>
