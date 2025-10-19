@@ -6,8 +6,14 @@ See projekt on õppetöö raames loodud veebileht, mis sisaldab järgmisi lehti:
 - Avaleht
 - Ajainfo
 - Vanasõnade nimekiri
-- Külastajate logimine
-- Külaliste nimekiri ja counter
+- Külastajad
+- Külastajate bimekiri
+- Külaliste registreerimine
+- Eesti film
+- Filmiinimesed nimekiri
+- Filmiinimeste registreerimine
+- Ametid nimekiri
+- Ametite registreerimine
 
 ## Nõuded
 
