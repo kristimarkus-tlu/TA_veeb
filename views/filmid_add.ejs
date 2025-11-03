@@ -35,25 +35,25 @@
         <li><a href="/eestifilm">Eesti film</a></li>
 	</ul>
 	<hr>
-	<h2>Eesti filmiinimeste registreerimine</h2>
-	<ul>
-        <li><a href="/eestifilm/filmiinimesed">Tagasi</a></li>
+	<h2>Eesti filmide lisamine</h2>
+    <ul>
+        <li><a href="/eestifilm/filmid">Tagasi</a></li>
     </ul>
 	<form method="POST">
         <p>Staatus: <%= notice %></p>
-		<label for= "firstNameInput"> Filmiinimese eesnimi</label>
-		<input id = "firstNameInput" name="firstNameInput" type="text" required placeholder ="Sisesta eesnimi">
+		<label for="movieTitleInput">Filmi nimi</label>
+		<input id ="movieTitleInput" name="movieTitleInput" type="text" required placeholder ="Sisesta filmi pealkiri">
 		<br>
-		<label for= "lastNameInput"> Filmiinimese perekonnanimi</label>
-		<input id = "lastNameInput" name="lastNameInput" type="text" required placeholder ="Sisesta perekonnanimi">
+		<label for="production_yearInput">Aasta</label>
+		<input id="production_yearInput" name="production_yearInput" type="number" placeholder="">
 		<br>
-		<label for= "bornInput"> Filmiinimese sünnikuupäev</label>
-		<input id = "bornInput" name="bornInput" type="date" required>
+        <label for="durationInput">Kestvus (min)</label>
+		<input id="durationInput" name="durationInput" type="number" placeholder="">
 		<br>
-		<label for= "deceasedInput"> Filmiinimese surmakuupäev</label>
-		<input id = "deceasedInput" name="deceasedInput" type="date">
+        <label for="descriptionInput">Kirjeldus</label>
+		<textarea id="descriptionInput" name="descriptionInput" cols="50" rows="5" placeholder="Filmi lühikirjeldus"></textarea>
 		<br>
-		<input id="personSubmit" name="personSubmit" type="submit" value="Salvesta">
+		<input id="movieSubmit" name="movieSubmit" type="submit" value="Salvesta">
 	</form>
 </body>
 </html>

@@ -1,342 +1,423 @@
-html, body {  
-    margin: 0; /* eemaldab vaikimisi ääremarginaali */
-    padding: 0; /* eemaldab vaikimisi paddingu */
-    font-family: "Press Start 2P", monospace; /* seab kirjastiiliks monospace, teine monospace võtab osade browserite vaikimisi väiksema monospace kuvamise ära */
-    color: #fff; /* määrab teksti värviks valge */
-    text-align: center; /* joondab vaikimisi teksti keskele */
-    min-height: 100vh;            /* veendu, et body katab kogu vaate */
-    background: linear-gradient(135deg, #ff00ff, #ff6600, #00ccff);
-    background-attachment: fixed; /* gradient jääb fikseerituks taustaks */
-    background-size: cover;       /* katab kogu pinna, ei tee kordusi */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-}  
+/* --- Üldine --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Share Tech Mono', monospace;
+  background: #000;
+  color: #00ff00;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-.container {  
-    max-width: auto; /* max-laius "auto" (sisuliselt ei piira laiust) */
-    margin: 0 auto; /* keskele joondus (horisontaalselt) */
-    padding: 0 10px; /* lisab 10px sisemist ruumi vasakule ja paremale */
-}  
+/* --- Taustaanimatsioon: matrix-scan efekt --- */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,255,0,0.07) 0px,
+    rgba(0,255,0,0.07) 1px,
+    transparent 2px,
+    transparent 3px
+  );
+  animation: scan 6s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* --- Banner ja rong --- */
+.banner {
+  width: 100%;
+  display: block;
+  filter: brightness(0.9) contrast(1.3) saturate(1.2);
+  border-bottom: 2px solid #00ff00;
+}
+.train {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  filter: drop-shadow(0 0 10px #00ff00);
+}
+.engine, .carriage {
+  background: linear-gradient(145deg,#003300,#004400);
+  border: 2px solid #00ff00;
+  border-radius: 5px;
+  min-width: 100px;
+  min-height: 50px;
+  position: relative;
+}
+.wheel {
+  width: 20px; height: 20px;
+  background: #00ff00;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -10px;
+}
+.wheel.left  { left: 10px; }
+.wheel.right { right: 10px; }
+
+/* --- Pealkirjad --- */
+h1, h2 {
+  text-align: center;
+  color: #00ff66;
+  text-shadow: 0 0 8px #00ff00, 0 0 25px #00ff66;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 5px #00ff00; }
+  to   { text-shadow: 0 0 25px #00ff66, 0 0 40px #00ff99; }
+}
+h1::after {
+  content: "_";
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* --- Linkide ja menüüde stiil --- */
+ul.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 0;
+  margin: 20px auto;
+}
+ul.menu li a {
+  border: 1px solid #00ff66;
+  border-radius: 5px;
+  padding: 8px 15px;
+  color: #00ff99;
+  background: rgba(0,255,0,0.05);
+  text-decoration: none;
+  text-shadow: 0 0 5px #00ff00;
+  transition: all 0.3s;
+}
+ul.menu li a:hover {
+  background: #00ff66;
+  color: #000;
+  text-shadow: none;
+}
+
+/* --- Andmeloendid (nt <ol> ja <ul>) --- */
+ol, ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px auto;
+  max-width: 800px;
+}
+ol li, ul li {
+  background: rgba(0,255,0,0.05);
+  border-left: 2px solid #00ff66;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0,255,0,0.15);
+}
+
+/* --- Vormid --- */
+form {
+  background: rgba(0,255,0,0.08);
+  border: 1px solid #00ff66;
+  box-shadow: 0 0 15px #00ff44;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 400px;
+  border-radius: 10px;
+}
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #00ff99;
+}
+input[type=text],
+input[type=date],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 14px;
+  background: #000;
+  border: 1px solid #00ff99;
+  color: #00ff99;
+  box-shadow: 0 0 8px rgba(0,255,0,0.3);
+}
+input[type=submit] {
+  width: 100%;
+  padding: 10px;
+  background: #00ff66;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+input[type=submit]:hover {
+  background: #00cc55;
+}
+
+/* --- Väiksed detailid --- */
+hr {
+  border: none;
+  border-top: 1px solid rgba(0,255,0,0.4);
+  margin: 20px 0;
+}
+a {
+  color: #00ff99;
+  text-decoration: none;
+}
+a:hover {
+  color: #000;
+  background: #00ff99;
+  text-shadow: 0 0 10px #00ff99;
+}
+p {
+  line-height: 1.6;
+  text-align: center;
+  color: #00ff99;
+}
+
+/* --- Väike responsive tweak --- */
+@media (max-width: 600px) {
+  ul.menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  ul.menu li a {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+/* --- Täiustused Kristi hacker disainile --- */
+
+/* Külastusi kokku – joondus paremale poole */
+.stats, .visitorCount, p.kulastusedkokku {
+  text-align: right;
+  margin-right: 10%;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #00ff99;
+  text-shadow: 0 0 8px #00ff66;
+}
+
+/* Vormide sisestusväljad mahuksid korralikult sisse */
+form {
+  width: 90%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+input[type=text],
+input[type=date],
+textarea,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+/* Vormikast ise – keskel ja sisu ilusti paigas */
+form p,
+form label {
+  font-size: 1rem;
+}
+form input[type=submit] {
+  font-size: 1.1rem;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+/* Nimed ja filmide pealkirjad veidi suuremad */
+ol li strong,
+span.positionName,
+span.movieTitle {
+  font-size: 1.15rem;
+  color: #00ff66;
+  text-shadow: 0 0 10px #00ff66;
+}
+
+/* Filmide pealkirjad – silmapaistvaks ja eristuvaks */
+ol li em {
+  font-size: 1.1rem;
+  font-style: normal;
+  color: #00ffcc;
+  text-shadow: 0 0 6px #00ffff;
+}
+
+/* Külastajana kirja paneku vorm – sisu korralikult kasti sees */
+form label,
+form input,
+form textarea,
+form select {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+}
+form {
+  padding: 25px 30px;
+}
+
+/* Vorm keskele vertikaalselt väiksemate ekraanide korral */
+@media (max-width: 600px) {
+  form {
+    width: 95%;
+    margin: 15px auto;
+    padding: 15px;
+  }
+  .visitorCount {
+    text-align: center;
+    margin-right: 0;
+  }
+}
 
 img.banner, .welcomepicture {  
     width: 100%; /* banner-pilt võtab kogu konteineri laiuse */
 }  
 
-ul {  
-    list-style-type: none; /* eemaldab loendi täpid/numbrid */
-    padding: 0; /* eemaldab sisemise ääre */
-    margin: 20px auto; /* 20px marginaali üleval/all, horisontaalselt keskel */
-    display: flex; /* muudab loendi flex konteineriks (üksteise all) block oleks kõrvuti vist */
-    justify-content: center; /* elemendid joondatakse keskele */
-    gap: 15px; /* vahe elementide vahel */
-    flex-wrap: wrap; /* allow wrapping */
-}  
-
-.ajainfo {
-    font-size: 1.5em;
-    font-weight: bold;
+ol li {
+  font-size: 1.05rem;
+  background: rgba(0, 255, 0, 0.05);
+  border-left: 2px solid #00ff66;
+  padding: 8px 12px;
+  margin: 8px 0;
+  line-height: 1.7;
 }
-
-ol {
-    justify-content: center;
-    list-style: none; /* eemaldab automaatsed numbrid */
-    padding-left: 0;  /* eemaldab vasaku taustamarginaali */
+ol li strong {
+  color: #00ff66;
+  text-shadow: 0 0 6px #00ff66;
 }
-
-.positionName {
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-.vanasonad {  
-    display: block; /* element käitub plokk-elemendina (mdea, see paneb need lsslt üksteise alla*/
-}  
-
-/* lingid Ajainfo, Vanasõnad, Külastus, Külastajad*/
-ul li a {  
-    background-color: yellow; /* hall taust lehtede linkidel*/
-    padding: 8px 15px; /* sisemine ruum ülal/alas 8px, külgedel 15px */
-    text-shadow: 2px 2px 0px #fb64fb, -0.5px -0.5px 0px #00ccff;
-    color: blue;
-    transition: background-color 0.3s; /* sujuv taustavärvi muutus hoveril */
-    display: inline-block; /* ensures no overlap */
-}  
-
-a {  
-    color: blue; /* linkide TEKSTI värv roosa */
-    text-decoration: none; /* eemaldab allajoonimise */
-    font-weight: bold; /* muudab teksti paksuks */
-}
-
-ul li a:hover {  
-    background-color: #f38196; /* hiirega üle minnes roosa taust */
-    color: white; /* ja tekst muutub valgeks */
-}  
-
-input[type=text] {  
-    width: 100%; /* sisestusväli võtab kogu laiuse */
-    padding: 12px; /* lisab sisemist ruumi */
-    margin: 10px 0; /* vahe üleval ja all 10px */
-    box-sizing: border-box; /* padding arvestatakse elemendi laiusesse */
-}  
-
-h2 {  
-    text-align: center; /* h2 pealkirjad keskele joondatud */
-    color: yellow; /* roosa teksti värv */
-    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ccff;
-}  
-
-h1 {  
-    margin-top: 20px; /* ülemine vahe 20px */
-    margin-bottom: 10px; /* alumine vahe 10px */
-    font-size: 2rem; /* suurus 2rem */
-    color: yellow; /* roosa teksti värv */
-    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ccff;
-}  
-
-p {  
-    line-height: 1.6; /* rea kõrgus paremaks loetavuseks */
-    margin-bottom: 20px; /* alumine vahe 20px */
-}  
-
-form {  
-    background: yellow;
-    padding: 20px; /* sisemine vahe 20px */
-    max-width: 400px; /* vormi maksimaalne laius */
-    margin: 20px auto; /* keskele ja vahe 20px üleval/all */
-    text-align: left; /* tekst vasakule joondatud */
-    color: black;
-}  
-
-label {  
-    font-weight: bold; /* tekst paksuks */
-}  
-
-input[type=text], input[type=submit] {  
-    width: 100%; /* mõlemad võtavad 100% laiuse */
-    padding: 10px; /* sisemine ruum */
-    margin-top: 8px; /* vahe üleval 8px */
-    margin-bottom: 16px; /* vahe all 16px */
-    border: none; /* eemaldab piiri */
-    font-family: "Press Start 2P", monospace;
-}  
-
-input[type=text],
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  margin-bottom: 16px;
-  border: none;
-  box-sizing: border-box;
-}
-
-input[type=text] {  
-    background: white; /* hall taust */
-    color: black; /* tekst must */
-}  
-
-input[type=submit] {  
-    background: #ff00ff; /* roosa taust */
-    color: white; /* valge tekst */
-    font-weight: bold; /* paks kiri */
-    cursor: pointer; /* muutub peale minnes hiirega klikitavaks käe-ikooniks */
-    transition: background 0.3s; /* sujuv hover efekt */
-}  
-
-input[type=submit]:hover {  
-    background: #d4687d; /* tumedam roosa hoveril */
-}  
-
-ul.kulastajatenimed {  
-    border-radius: 4px;
-    margin: 8px 0; /* vahe üleval/all 8px */
-    padding: 20px; /* sisemine ruum */
-    display: block; /* plokk-element */
-}  
-
-/* ===== Retro train skin (lihtne, ainult stiil) ===== */
-
-/* värvipalet */
-:root{
-  --retro-1: #ffd400; /* kollane */
-  --retro-2: #ff66cc; /* roosa */
-  --retro-3: #00e5ff; /* tsüaan */
-  --retro-4: #2b2b2b; /* tume serv */
-  --retro-shadow: rgba(0,0,0,0.45);
-}
-
-/* üldine rongi raam (pisut madalam varju ja tugev kontrast) */
-.train {
-  display: flex;       /* hoiab sinu loogika samana */
-  gap: 10px;
-  align-items: flex-end;
-  justify-content: center;
-  margin-top: 20px;
-  /* väike "pixel" effekt: selge serv all */
-  filter: drop-shadow(0 6px 0 var(--retro-shadow));
-}
-
-/* vedur + vagun */
-.engine, .carriage {
-  position: relative;
-  width: auto;    /* säilita originaalid, kui oled määranud mujal */
-  border-radius: 4px;              /* pehme 8-bit nurk (väike) */
-  padding: 0;
-  /* triibuline 8-bit stiil — väike ribimuster */
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--retro-1) 0 10px,
-    var(--retro-2) 10px 20px,
-    var(--retro-3) 20px 30px
-  );
-  background-size: 30px 100%;
-  border: 3px solid var(--retro-4); /* tugev serv */
-  box-shadow:
-    0 6px 0 rgba(0,0,0,0.45),         /* alt varju "plaat" */
-    0 0 10px rgba(255,102,204,0.12);  /* õrn neon sära */
-  min-width: 100px;  /* veidi kaitset, kui laius määramata */
-  min-height: 40px;  /* kaitse kõrguse puhul */
-}
-
-/* veduri kuppel (jätame olemasolevale ::before, aga värvame) */
-.engine::before {
-  content: '';
-  position: absolute;
-  top: -18px;
-  left: 12px;
-  width: 28px;
-  height: 18px;
-  border-radius: 4px 4px 0 0;
-  background: linear-gradient(180deg, var(--retro-2), var(--retro-1));
-  border: 2px solid var(--retro-4);
-  box-shadow: 0 4px 0 rgba(0,0,0,0.35);
-}
-
-/* vagunite suurus kui sul on juba määratud, võid jätta samaks */
-.engine { width: 120px; height: 60px; }
-.carriage { width: 100px; height: 50px; }
-
-/* ratta üldstiil - lisame sisemise rõnga ja tugeva äärise */
-.wheel {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  position: absolute;
-  bottom: -11px;
-  background: radial-gradient(circle at 40% 40%, #222 35%, #000 36%),
-              radial-gradient(circle at 60% 60%, #444 40%, #222 41%);
-  border: 3px solid #111;
-  box-shadow: 0 4px 0 rgba(0,0,0,0.45), 0 0 8px rgba(0,229,255,0.06);
-}
-
-/* väike positsioneerimisnipid (kõrvalrataste pisut eredam äär) */
-.wheel.left  { left: 10px; }
-.wheel.right { right: 10px; }
-
-/* kui tahad vagunitele erinevat värvi igaühele — lisa klassid HTML-is (näide stiil): */
-/* .carriage.yellow { background-image: repeating-linear-gradient(90deg, #ffd400 0 12px, #ffcc33 12px 24px); } */
-
-/* mobiil: vähenda suuri servasid ja hoia kõik korrektne */
-@media (max-width: 480px) {
-  .engine, .carriage {
-    min-width: 70px;
-    min-height: 40px;
-    border-width: 2px;
-    border-radius: 3px;
-  }
-  .wheel { width: 18px; height: 18px; bottom: -9px; border-width: 2px; }
-}
-
-
-
-nav ul {  
-    display: flex; /* nav loend on flex */
-    gap: 15px; /* vahe linkide vahel */
-    list-style: none; /* eemaldab täpid */
-    margin: 0; /* eemaldab marginaali */
-    padding: 0; /* eemaldab paddingu */
-    flex-wrap: wrap; /* lingid murtakse uuele reale, kui ruumi pole */
-}  
-
-nav ul li a {  
-    background-color: #444; /* hall taust */
-    padding: 8px 12px; /* sisemine ruum */
-    border-radius: 5px; /* ümarad nurgad */
-    color: white; /* valge tekst */
-    font-weight: bold; /* paks kiri */
-    text-decoration: none; /* allajoon eemaldatud */
-    transition: background 0.3s; /* sujuv hover efekt */
-}  
-/*
-@media (max-width: 600px) { /* reeglid mobiilivaates kuni 600px laiusega  
-    header {  
-        flex-direction: column; /* elemendid veergu 
-        align-items: flex-start; /* vasakule joondatud 
-    }  
-
-    nav ul {  
-        flex-direction: column; /* lingid üksteise alla 
-        gap: 10px; /* vahe linkide vahel 
-        width: 100%; /* kogu laius 
-        justify-content: flex-start; /* vasakule joondatud 
-    }  
-
-    nav ul li a {  
-        width: 100%; /* lingid võtavad kogu laiuse 
-        text-align: left; /* tekst vasakule joondatud 
-        padding: 6px 10px; /* veidi väiksem padding 
-        font-size: 0.9rem; /* väiksem font 
-    }  
-}*/
-ul.ajainfo {
-  display: block; /* üksteise all */
-  /* list-style: none;  kui ei taha täppe aga eelnevalt täpid juba ära võetud */
-  padding: 0;
-  margin: 0;
-}
-
-ul.ajainfo li {
-  margin: 5px 0; /* vahe ridade vahel */
-}
-
-nav ul.menu {
-  display: flex;
-  flex-wrap: wrap; /* <-- lubab linkidel minna järgmisele reale */
-  justify-content: center;
-  list-style: none;
-  gap: 10px;
-  padding: 0;
-  margin: 10px auto;
-}
-
-nav ul.menu li a {
-  background-color: yellow;
-  color: blue;
-  padding: 8px 15px;
-  text-decoration: none;
+ol li em {
+  color: #00ffcc;
   font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  text-shadow: 2px 2px 0px #fb64fb, -0.5px -0.5px 0px #00ccff;
 }
 
-nav ul.menu li a:hover {
-  background-color: #f38196;
-  color: white;
+ol li {
+  background: rgba(0, 255, 0, 0.05);
+  border-left: 2px solid #00ff66;
+  padding: 10px 15px;
+  margin: 12px 0;
+  line-height: 1.6;
+  box-shadow: 0 0 8px rgba(0,255,0,0.2);
 }
 
-/* Väikese ekraani korral */
-@media (max-width: 600px) {
-  nav ul.menu {
-    flex-direction: column; /* lingid lähevad üksteise alla */
-    align-items: center; /* joondame keskele */
-    gap: 8px;
-  }
-
-  nav ul.menu li a {
-    display: block;
-    width: 90%; /* teeb lingid suuremaks ja loetavamaks */
-    text-align: center;
-  }
+ol li strong {
+  display: block;
+  color: #00ff66;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+  text-shadow: 0 0 8px #00ff66;
 }
 
+ol li em {
+  color: #00ffcc;
+  font-style: normal;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+/* --- Fikseeritud banneri kõrgus kõigil lehtedel --- */
+img.banner {
+  width: 100%;
+  height: auto;
+  max-height: 180px; /* ühtlane kõrgus igal lehel */
+  object-fit: cover; /* täidab ala proportsionaalselt */
+  display: block;
+  margin: 0 auto;
+  border-bottom: 2px solid #00ff00;
+  filter: brightness(0.9) contrast(1.3) saturate(1.2);
+}
+
+/* eemaldame .welcomepicture mõjutuse add-lehtedel */
+.welcomepicture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: none;
+}
+
+.welcome-screen {
+  text-align: center;
+  padding: 60px 20px;
+  border: 1px solid #00ff66;
+  background: rgba(0, 255, 0, 0.05);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  border-radius: 12px;
+  width: 80%;
+  max-width: 800px;
+  margin: 40px auto;
+  animation: flicker 2.5s infinite alternate;
+}
+
+.welcome-screen {
+  text-align: center;
+  padding: 60px 20px;
+  border: 1px solid #00ff66;
+  background: rgba(0, 255, 0, 0.05);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  border-radius: 12px;
+  width: 80%;
+  max-width: 800px;
+  margin: 40px auto;
+  animation: flicker 2.5s infinite alternate;
+}
+
+/* Pealkiri ja trükkimisefekt */
+.welcome-title {
+  font-size: 2rem;
+  color: #00ff66;
+  text-shadow: 0 0 20px #00ff66, 0 0 40px #00ff99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.typed-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: type 4s steps(25, end) forwards;
+  border-right: none;
+  max-width: 0;
+}
+
+/* Vilkuv kursor */
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  background-color: #00ff66;
+  margin-left: 6px;
+  animation: blink 1s step-end infinite;
+}
+
+/* Animatsioonid */
+@keyframes type {
+  from { max-width: 0; }
+  to { max-width: 100%; }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.97; }
+}

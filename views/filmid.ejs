@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Kristi Markus</title>
-	<link rel="stylesheet" href="css.css">
+	<link rel="stylesheet" href="../css.css">
 </head>
 <body>
 	<img src="/images/vp_banner_2025_TA.jpg" alt="veebiprogrammeerimise 2025 aasta kursuse banner!" class="banner">
@@ -36,30 +36,28 @@
 		</ul>
 		<hr>
 	</div>
-    <h2>Eesti film</h2>
-        <ul>
-            <li><a href="/eestifilm/filmiinimesed">Eesti filmiinimesed</a></li>
-        </ul>
-        <!-- <ul>
-            <li><a href="/eestifilm/filmiinimesed_add">Eesti filmiinimeste lisamine</a></li>
-        </ul> -->
-        <ul>
-            <li><a href="/eestifilm/ametid">Eesti film ametite nimekiri</a></li>
-        </ul>
-        <!-- <ul>
-            <li><a href="/eestifilm/position_add">Ametite lisamine</a></li>
-        </ul> -->
-        <ul>
-            <li><a href="/eestifilm/filmid">Eesti filmide nimekiri</a></li>
-        </ul>
-        <!-- <ul>
-            <li><a href="/eestifilm/filmid_add">Filmide lisamine</a></li>
-        </ul> -->
-        <ul>
-            <li><a href="/eestifilm/seosed">Eesti filmi seosed</a></li>
-        </ul>
-        <!-- <ul>
-            <li><a href="/eestifilm/seosed_add">Filmi seoste lisamine</a></li>
-        </ul> -->
+    <h2>Eesti filmide nimekiri</h2>
+    <ul>
+        <li><a href="/eestifilm">Tagasi</a></li>
+    </ul>
+    <ul>
+        <li><a href="/eestifilm/filmid_add">Eesti filmide lisamine</a></li>
+    </ul>
+    <ol>
+        <% movieList.forEach(function(listItem) { %>
+                <li>
+                    <span class="movieTitle">
+                        <%= listItem.title %> 
+                    </span>
+                    <br>
+                    Aasta: <%= listItem.production_year %>
+                    <br>
+                    Kestvus: <%= listItem.duration %> min
+                    <br>
+                    Kirjeldus: <%= listItem.description %>
+                </li>
+                <br>
+            <% }); %>
+    </ol>
 </body>
 </html>

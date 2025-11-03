@@ -36,19 +36,47 @@
 		</ul>
 		<hr>
 	</div>
-    <h2><%= heading %></h2>
+    <h2>Eesti filmi seoste nimekiri</h2>
     <ul>
-        <li><a href="/kulastused">Tagasi</a></li>
+        <li><a href="/eestifilm">Tagasi</a></li>
     </ul>
     <ul>
-        <li><a href="/kulastused/kulastajad_add">Külastajaks registreerimine</a></li>
+        <li><a href="/eestifilm/seosed_add">Eesti filmi seoste lisamine</a></li>
     </ul>
-        
-        <ul class="kulastajatenimed">
-            <h3>Külastusi kokku: <%= count %></h3>
-            <% listDataK.forEach(function(listItem) { %>
-                <li><%= listItem %></li>
+    <!-- <ol>
+        <% person_in_movieList.forEach(function(listItem) { %>
+                <li>
+                    <strong><%= listItem.first_name %> <%= listItem.last_name %></strong>
+                    <%= listItem.position_name %> filmis
+                    <em><%= listItem.title %></em>
+                    <% if (listItem.role) { %>
+                        (roll: <%= listItem.role %>)
+                    <% } %>
+                </li>       
             <% }); %>
-        </ul>
+    </ol> -->
+   <%
+  // Rühmitame inimesed kokku
+  const grouped = {};
+  person_in_movieList.forEach(item => {
+    const key = `${item.first_name} ${item.last_name}`;
+    if (!grouped[key]) grouped[key] = [];
+    grouped[key].push(item);
+  });
+%>
+
+<ol>
+  <% Object.keys(grouped).forEach(person => { %>
+    <li>
+      <strong><%= person %></strong><br>
+      <% grouped[person].forEach(movie => { %>
+        – <%= movie.position_name.toLowerCase() %> filmis <em><%= movie.title %></em>
+        <% if (movie.role) { %> (roll: <%= movie.role %>) <% } %><br>
+      <% }); %>
+    </li>
+  <% }); %>
+</ol>
+
+
 </body>
 </html>
