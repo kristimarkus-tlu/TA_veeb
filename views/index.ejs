@@ -7,24 +7,10 @@
 </head>
 <body>
 	<img src="images/vp_banner_2025_TA.jpg" alt="veebiprogrammeerimise 2025 aasta kursuse banner!" class="banner">
-	<div class="train">
-        <div class="engine">
-            <div class="wheel left"></div>
-            <div class="wheel right"></div>
-        </div>
-        <div class="carriage">
-            <div class="wheel left"></div>
-            <div class="wheel right"></div>
-        </div>
-        <div class="carriage">
-            <div class="wheel left"></div>
-            <div class="wheel right"></div>
-        </div>
-	</div>
 	<hr>
 	<div class="container">
 		<h1>Kristi Markus, veebiprogrammeerimine</h1>
-		<p>See leht on loodud õppetöö raames <a href="https://www.tlu.ee/">Tallinna Ülikoolis</a>, Digitehnoloogiate instituudis ja ei sisalda tõsiseltvõetavat materjali!</p>
+		<p>See leht on loodud õppetöö raames <a href="https://www.tlu.ee/"><strong>Tallinna Ülikoolis</strong></a>, Digitehnoloogiate instituudis ja ei sisalda tõsiseltvõetavat materjali!</p>
 		
     </div>
 		<hr>
@@ -34,10 +20,35 @@
 			<li><a href="/vanasonad">Vanasõnad</a></li>
 			<li><a href="/kulastused">Külastajad</a></li>
 			<li><a href="/eestifilm">Eesti film</a></li>
+			<li><a href="/gallery">Galerii</a></li>
 		</ul>
 		<hr>
 	</div>
-	<p>Külastajate regamise routes ja controller pooleli prgu</p>
-	<img src="images/welcome.png" alt="welcome pilt" class="welcomepicture">
+	 <div class="welcome-screen">
+  <h2 class="welcome-title">
+  <span class="typed-text">Tere tulemast!!!</span><span class="cursor"></span>
+</h2>
+
+  <p class="welcome-text">
+
+	<div class="gallery">
+        <% if (photos && photos.length > 0) { %>
+            <% photos.forEach(photo => { %>
+                <div class="photo-item">
+                    <img src="/gallery/normal/<%= photo.filename %>" 
+                         alt="<%= photo.altext %>">
+                    <p><%= photo.altext %></p>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>Ühtegi fotot pole veel üles laetud!</p>
+        <% } %>
+    </div>
+	
+    >>> ...<br>
+    >>> Kursus: Veebiprogrammeerimine 2025<br>
+    >>> Tallinna Ülikool | Digitehnoloogiate instituut
+  </p>
+</div>
 </body>
 </html>

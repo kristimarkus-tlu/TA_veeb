@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="et">
+	<head>
+		<meta charset="utf-8">
+	<title>Kristi Markus</title>
+	<link rel="stylesheet" href="../css.css">
+	</head>
+<body>
+	<img src="/images/vp_banner_2025_TA.jpg" alt="veebiprogrammeerimise 2025 aasta kursuse banner!" class="banner">
+	<!-- <div class="train">
+        <div class="engine">
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>
+        <div class="carriage">
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>
+        <div class="carriage">
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>
+	</div> -->
+	<hr>
+	<div class="container">
+		<h1>Kristi Markus, veebiprogrammeerimine</h1>
+		<p>See leht on loodud õppetöö raames <a href="https://www.tlu.ee/">Tallinna Ülikoolis</a>, Digitehnoloogiate instituudis ja ei sisalda tõsiseltvõetavat materjali!</p>
+    </div>
+	<hr>
+	<ul class="menu">
+		<li><a href="/">Avaleht</a></li>
+        <li><a href="/ajainfo">Ajainfo</a></li>
+		<li><a href="/vanasonad">Vanasõnad</a></li>
+		<li><a href="/kulastused">Külastajad</a></li>
+        <li><a href="/eestifilm">Eesti film</a></li>
+		<li><a href="/gallery">Galerii</a></li>
+	</ul>
+	<hr>
+	<h2>Eesti filmide lisamine</h2>
+    <ul>
+        <li><a href="/eestifilm/filmid">Tagasi</a></li>
+    </ul>
+	<form method="POST">
+        <p>Staatus: <%= notice %></p>
+		<label for="movieTitleInput">Filmi nimi</label>
+		<input id ="movieTitleInput" name="movieTitleInput" type="text" required placeholder ="Sisesta filmi pealkiri">
+		<br>
+		<label for="production_yearInput">Aasta</label>
+		<input id="production_yearInput" name="production_yearInput" type="number" placeholder="">
+		<br>
+        <label for="durationInput">Kestvus (min)</label>
+		<input id="durationInput" name="durationInput" type="number" placeholder="">
+		<br>
+        <label for="descriptionInput">Kirjeldus</label>
+		<textarea id="descriptionInput" name="descriptionInput" cols="50" rows="5" placeholder="Filmi lühikirjeldus"></textarea>
+		<br>
+		<input id="movieSubmit" name="movieSubmit" type="submit" value="Salvesta">
+	</form>
+</body>
+</html>

@@ -6,6 +6,7 @@ const dateFormatted = function(){
 	let monthNow = timeNow.getMonth();
 	let yearNow = timeNow.getFullYear();
 	const monthNamesEt = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
+	//let dateEt = "Täna on: " + dateNow + ". " + (monthNamesEt[monthNow]) + " " + yearNow;	
 	return dateNow + ". " + monthNamesEt[monthNow] + " " + yearNow;
 }
 
@@ -21,6 +22,9 @@ const timeFormatted = function(){
 	let hourNow = String(timeNow.getHours()).padStart(2, "0");
     let minuteNow = String(timeNow.getMinutes()).padStart(2, "0");
     let secondNow = String(timeNow.getSeconds()).padStart(2, "0");
+	// let hourNow = timeNow.getHours();
+	// let minuteNow = timeNow.getMinutes();
+	// let secondNow = timeNow.getSeconds();
 	return hourNow + ":" + minuteNow + ":" + secondNow;
 }
 
@@ -32,6 +36,18 @@ const partOfDay = function(){
 	}
 	return dPart
 }
+
+//const schoolDay = function(){
+//	let dayOfWeek = "sul ei ole praegu kool";
+//	let dayNow = new Date().getDay();
+//	let hourNow = new Date().getHours();
+//	if(weekDay() == "esmaspäev" || weekDay() == "teisipäev" || weekDay() == "kolmapäev" || weekDay() == "neljapäev" || weekDay() == "reede" ){
+//		if(hourNow > 8 && hourNow <= 16){
+//			dayOfWeek = "sul on praegu kool!!!!!!!!!!!!"
+//		}
+//	}
+//	return dayOfWeek
+//}
 
 const schoolDay = function(){
 	let dayOfWeek = "sul ei ole praegu kool";
@@ -56,6 +72,8 @@ const schoolDay = function(){
 	return dayOfWeek;
 }
 
+//kataks tüüpilise nädala
+
 // expordin kõik vajaliku
 module.exports = {
 	dateFormatted: dateFormatted,
@@ -65,38 +83,3 @@ module.exports = {
 	dPart: partOfDay,
 	dayOfWeek: schoolDay
 };
-
-// mingid asjad
-
-/* const timeFormatted = function(){
-	let timeNow = new Date();
-	let hourNow = String(timeNow.getHours()).padStart(2, "0");
-    let minuteNow = String(timeNow.getMinutes()).padStart(2, "0");
-    let secondNow = String(timeNow.getSeconds()).padStart(2, "0");
-	// let hourNow = timeNow.getHours();
-	// let minuteNow = timeNow.getMinutes();
-	// let secondNow = timeNow.getSeconds();
-	return hourNow + ":" + minuteNow + ":" + secondNow;
-} */
-
-/* const dateFormatted = function(){
-	let timeNow = new Date();
-	let dateNow = timeNow.getDate();
-	let monthNow = timeNow.getMonth();
-	let yearNow = timeNow.getFullYear();
-	const monthNamesEt = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
-	//let dateEt = "Täna on: " + dateNow + ". " + (monthNamesEt[monthNow]) + " " + yearNow;	
-	return dateNow + ". " + monthNamesEt[monthNow] + " " + yearNow;
-} */
-
-//const schoolDay = function(){
-//	let dayOfWeek = "sul ei ole praegu kool";
-//	let dayNow = new Date().getDay();
-//	let hourNow = new Date().getHours();
-//	if(weekDay() == "esmaspäev" || weekDay() == "teisipäev" || weekDay() == "kolmapäev" || weekDay() == "neljapäev" || weekDay() == "reede" ){
-//		if(hourNow > 8 && hourNow <= 16){
-//			dayOfWeek = "sul on praegu kool!!!!!!!!!!!!"
-//		}
-//	}
-//	return dayOfWeek
-//}

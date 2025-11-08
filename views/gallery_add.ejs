@@ -1,0 +1,64 @@
+<!DOCTYPE html> 
+<html lang="et"> 
+<head>
+	<meta charset="utf-8">
+	<title>Kristi Markus</title>
+	<link rel="stylesheet" href="../css.css">
+</head>
+<body>
+	<img src="/images/vp_banner_2025_TA.jpg" alt="veebiprogrammeerimise 2025 aasta kursuse banner!" class="banner">
+	<!-- <div class="train">
+        <div class="engine">
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>
+        <div class="carriage">
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>
+        <div class="carriage">
+            <div class="wheel left"></div>
+            <div class="wheel right"></div>
+        </div>
+	</div> -->
+	<hr>
+	<div class="container">
+		<h1>Kristi Markus, veebiprogrammeerimine</h1>
+		<p>See leht on loodud õppetöö raames <a href="https://www.tlu.ee/">Tallinna Ülikoolis</a>, Digitehnoloogiate instituudis ja ei sisalda tõsiseltvõetavat materjali!</p>
+    </div>
+		<hr>
+		<ul class="menu">
+			<li><a href="/">Avaleht</a></li>
+            <li><a href="/ajainfo">Ajainfo</a></li>
+			<li><a href="/vanasonad">Vanasõnad</a></li>
+			<li><a href="/kulastused">Külastajad</a></li>
+            <li><a href="/eestifilm">Eesti film</a></li>
+            <li><a href="/gallery">Galerii</a></li>
+		</ul>
+		<hr>
+	</div>
+    <h2>Lae üles galeriifoto</h2>
+    <ul>
+        <li><a href="/gallery">Tagasi</a></li>
+    </ul>
+    
+    <form method="POST" action="/gallery/gallery_add" enctype="multipart/form-data">
+        <label for="photoInput">Vali soovitud pildifail:</label>
+        <input id="photoInput" name="photoInput"type="file">
+        <br>
+        <label for="altInput">Pildi alternatiivtekst:</label>
+        <input id="altInput" name="altInput" type="text" placeholder="Sellel pildil on..">
+        <br>
+        <input id="privacyInput1" name="privacyInput" value="1" type="radio" checked>
+        <label for="privacyInput1">Privaatne</label>
+        <br>
+        <input id="privacyInput2" name="privacyInput" value="2" type="radio" >
+        <label for="privacyInput2">Sisseloginud  kasutajatele</label>
+        <br>
+        <input id="privacyInput3" name="privacyInput" value="3" type="radio" >
+        <label for="privacyInput3">Avalik</label>
+        <br>
+        <input type="submit" id="photoSubmit" name="photoSubmit" value="Lae foto üles">
+    </form>
+</body>
+</html>
