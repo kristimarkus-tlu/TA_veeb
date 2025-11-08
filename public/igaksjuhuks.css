@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* --- Üldine --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Share Tech Mono', monospace;
+  background: #000;
+  color: #ffffff;
+  /*color:  #00ff00; */;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- Taustaanimatsioon: matrix-scan efekt --- */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.05);
+  /* background: repeating-linear-gradient(
+    0deg,
+    rgba(0,255,0,0.07) 0px,
+    rgba(0,255,0,0.07) 1px,
+    transparent 2px,
+    transparent 3px
+  ); */
+  animation: scan 6s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* --- Banner ja rong --- */
+.banner {
+  width: 100%;
+  display: block;
+  /* filter: brightness(0.9) contrast(1.3) saturate(1.2); */
+  /* border-bottom: 2px solid #00ff00; */
+  filter: none;
+  border-bottom: 2px solid #ffffff;
+}
+.train {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  filter: drop-shadow(0 0 10px #00ff00);
+}
+.engine, .carriage {
+  background: linear-gradient(145deg,#111,#222);
+  /* background: linear-gradient(145deg,#003300,#004400); */
+  /* border: 2px solid #00ff00; */
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  min-width: 100px;
+  min-height: 50px;
+  position: relative;
+}
+.wheel {
+  width: 20px; height: 20px;
+  /* background: #00ff00; */
+  background: linear-gradient(145deg,#111,#222);
+
+  border-radius: 50%;
+  position: absolute;
+  bottom: -10px;
+}
+.wheel.left  { left: 10px; }
+.wheel.right { right: 10px; }
+
+/* --- Pealkirjad --- */
+h1, h2 {
+  text-align: center;
+  color: #ffffff;
+  /* color: #00ff66; */
+  text-shadow: 0 0 8px #00ff00, 0 0 25px #00ff66;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 5px #00ff00; }
+  to   { text-shadow: 0 0 25px #00ff66, 0 0 40px #00ff99; }
+}
+h1::after {
+  content: "_";
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* --- Linkide ja menüüde stiil --- */
+ul.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 0;
+  margin: 20px auto;
+}
+ul.menu li a {
+  border: 1px solid #ffffff;
+  /* border: 1px solid #00ff66; */
+  border-radius: 5px;
+  padding: 8px 15px;
+  color: #ffffff;
+  text-shadow: none;
+  /* color: #00ff99; */
+  background: rgba(0,255,0,0.05);
+  text-decoration: none;
+  /* text-shadow: 0 0 5px #00ff00; */
+  transition: all 0.3s;
+}
+ul.menu li a:hover {
+  background: #ffffff;
+  /* background: #00ff66; */
+  color: #000;
+  text-shadow: none;
+}
+
+/* --- Andmeloendid (nt <ol> ja <ul>) --- */
+ol, ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px auto;
+  max-width: 800px;
+}
+ol li, ul li {
+  /* background: rgba(0,255,0,0.05);
+  border-left: 2px solid #00ff66; */
+  padding: 10px;
+  margin-bottom: 10px;
+  /* box-shadow: 0 0 10px rgba(0,255,0,0.15); */
+  background: rgba(255,255,255,0.05);
+  border-left: 2px solid #ffffff;
+  box-shadow: none;
+}
+
+/* --- Vormid --- */
+form {
+  background: rgba(0,255,0,0.08);
+  border: 1px solid #ffffff;
+  /* border: 1px solid #00ff66; */
+  box-shadow: none;
+  /* box-shadow: 0 0 15px #00ff44; */
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 400px;
+  border-radius: 10px;
+}
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ffffff;
+  /* color: #00ff99; */
+}
+input[type=text],
+input[type=date],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 14px;
+  background: #000;
+  border: 1px solid #00ff99;
+  color: #ffffff;
+  /* color: #00ff99; */
+  box-shadow: none;
+  /* box-shadow: 0 0 8px rgba(0,255,0,0.3); */
+}
+input[type=submit] {
+  width: 100%;
+  padding: 10px;
+  background: #ffffff;
+  /* background: #00ff66; */
+  border: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+input[type=submit]:hover {
+  background: #cccccc;
+  /* background: #00cc55; */
+}
+
+/* --- Väiksed detailid --- */
+hr {
+  border: none;
+  border-top: 1px solid rgba(0,255,0,0.4);
+  margin: 20px 0;
+}
+a {
+  color: #00ff99;
+  text-decoration: none;
+}
+a:hover {
+  color: #000;
+  background: #00ff99;
+  text-shadow: 0 0 10px #00ff99;
+}
+p {
+  line-height: 1.6;
+  text-align: center;
+  color: #00ff99;
+}
+
+/* --- Väike responsive tweak --- */
+@media (max-width: 600px) {
+  ul.menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  ul.menu li a {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+/* --- Täiustused Kristi hacker disainile --- */
+
+/* Külastusi kokku – joondus paremale poole */
+.stats, .visitorCount, p.kulastusedkokku {
+  text-align: right;
+  margin-right: 10%;
+  font-weight: bold;
+  font-size: 1.2rem;
+  /* color: #00ff99;
+  text-shadow: 0 0 8px #00ff66; */
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/* Vormide sisestusväljad mahuksid korralikult sisse */
+form {
+  width: 90%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+input[type=text],
+input[type=date],
+textarea,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+/* Vormikast ise – keskel ja sisu ilusti paigas */
+form p,
+form label {
+  font-size: 1rem;
+}
+form input[type=submit] {
+  font-size: 1.1rem;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+/* Nimed ja filmide pealkirjad veidi suuremad */
+ol li strong,
+span.positionName,
+span.movieTitle {
+  font-size: 1.15rem;
+  /* color: #00ff66;
+  text-shadow: 0 0 10px #00ff66; */
+  color: #ffffff;
+  text-shadow: none;
+}
+
+/* Filmide pealkirjad – silmapaistvaks ja eristuvaks */
+ol li em {
+  font-size: 1.1rem;
+  font-style: normal;
+  color: #00ffcc;
+  text-shadow: 0 0 6px #00ffff;
+}
+
+/* Külastajana kirja paneku vorm – sisu korralikult kasti sees */
+form label,
+form input,
+form textarea,
+form select {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+}
+form {
+  padding: 25px 30px;
+}
+
+/* Vorm keskele vertikaalselt väiksemate ekraanide korral */
+@media (max-width: 600px) {
+  form {
+    width: 95%;
+    margin: 15px auto;
+    padding: 15px;
+  }
+  .visitorCount {
+    text-align: center;
+    margin-right: 0;
+  }
+}
+
+img.banner, .welcomepicture {  
+    width: 100%; /* banner-pilt võtab kogu konteineri laiuse */
+}  
+
+ol li {
+  font-size: 1.05rem;
+  background: rgba(0, 255, 0, 0.05);
+  border-left: 2px solid #00ff66;
+  padding: 8px 12px;
+  margin: 8px 0;
+  line-height: 1.7;
+}
+ol li strong {
+  color: #00ff66;
+  text-shadow: 0 0 6px #00ff66;
+}
+ol li em {
+  color: #00ffcc;
+  font-weight: bold;
+}
+
+ol li {
+  background: rgba(0, 255, 0, 0.05);
+  border-left: 2px solid #00ff66;
+  padding: 10px 15px;
+  margin: 12px 0;
+  line-height: 1.6;
+  box-shadow: 0 0 8px rgba(0,255,0,0.2);
+}
+
+ol li strong {
+  display: block;
+  color: #00ff66;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+  text-shadow: 0 0 8px #00ff66;
+}
+
+ol li em {
+  color: #00ffcc;
+  font-style: normal;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+/* --- Fikseeritud banneri kõrgus kõigil lehtedel --- */
+img.banner {
+  width: 100%;
+  height: auto;
+  max-height: 180px; /* ühtlane kõrgus igal lehel */
+  object-fit: cover; /* täidab ala proportsionaalselt */
+  display: block;
+  margin: 0 auto;
+  border-bottom: 2px solid #ffffff;
+  /* border-bottom: 2px solid #00ff00; */
+  filter: brightness(0.9) contrast(1.3) saturate(1.2);
+}
+
+/* eemaldame .welcomepicture mõjutuse add-lehtedel */
+.welcomepicture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: none;
+}
+
+.welcome-screen {
+  text-align: center;
+  padding: 60px 20px;
+  /* border: 1px solid #00ff66; */
+  border: 1px solid #ffffff;
+  background: rgba(0, 255, 0, 0.05);
+  /* box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); */
+  box-shadow: none;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 800px;
+  margin: 40px auto;
+  animation: flicker 2.5s infinite alternate;
+}
+
+/* .welcome-screen {
+  text-align: center;
+  padding: 60px 20px;
+  border: 1px solid #00ff66;
+  background: rgba(0, 255, 0, 0.05);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  border-radius: 12px;
+  width: 80%;
+  max-width: 800px;
+  margin: 40px auto;
+  animation: flicker 2.5s infinite alternate;
+}
+ */
+/* Pealkiri ja trükkimisefekt */
+.welcome-title {
+  font-size: 2rem;
+  /* color: #00ff66; */
+  /* text-shadow: 0 0 20px #00ff66, 0 0 40px #00ff99; */
+  color: #ffffff;
+  text-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.typed-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: type 4s steps(25, end) forwards;
+  border-right: none;
+  max-width: 0;
+}
+
+/* Vilkuv kursor */
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  /* background-color: #00ff66; */
+  background-color: #ffffff;
+  margin-left: 6px;
+  animation: blink 1s step-end infinite;
+}
+
+/* Animatsioonid */
+@keyframes type {
+  from { max-width: 0; }
+  to { max-width: 100%; }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.97; }
+}

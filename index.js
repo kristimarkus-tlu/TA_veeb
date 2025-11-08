@@ -9,20 +9,39 @@ const dateEt = require("./src/dateTimeEt");
 const timeEt = require("./src/dateTimeEt");
 // käivitan express.js funktsiooni ja annan talle nimeks "app"
 const app = express();
+
+// toon galleryPage mooduli controlleritest
+//const { galleryPage } = require("./controllers/photouploadControllers");
 // määran veebilehtede mallide renderdamise mootori
 app.set("view engine", "ejs");
 // määran ühe päris kataloogi avalikult kättesaadavaks
 app.use(express.static("public"));
 // parsime päringu URL-i, lipp false kui ainult tekst ja true kui muid andmeid ka
-app.use(bodyparser.urlencoded({extended: false}));
+// kui tuleb vormist text, siis false, muidu true
+app.use(bodyparser.urlencoded({extended: true}));
 
 // css
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/", (req, res) => {
-  res.render("index");
+const { galleryPage } = require("./controllers/photouploadControllers");
+
+
+/* app.get("/", (req, res) => {
+    const galleryPage
+}); */
+
+// kasutab photoupControllers.js controllerite kaustas, et kasutada funktsiooni galleryPage
+/* app.get("/", (req, res) => {
+  galleryPage(req, res, "index");
 });
+
+--------> tegin indexile oma routeri, kas parem nii või kasutada varasemast varianti????
+ */
+
+// tegin indexile oma indexControllers.js ja indexRoutes.js
+const indexRouter = require("./routes/indexRoutes");
+app.use("/", indexRouter);
 
 app.get("/ajainfo", (req, res) => {
     const weekDayNow = dateEt.weekDay();
@@ -60,6 +79,10 @@ app.use("/kulastused", kulastusedRouter)
 // eesti filmi marsruudid
 const eestiFilmRouter = require("./routes/eestiFilmRoutes");
 app.use("/eestifilm", eestiFilmRouter);
+
+// galerii fotode üleslaadimine
+const photoupRouter = require("./routes/photoupRoutes");
+app.use("/gallery", photoupRouter);
 
 app.listen(5203);
 
