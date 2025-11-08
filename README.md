@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # TA Veebiprogrammeerimine 2025
 
 See projekt on õppetöö raames loodud veebileht, mis sisaldab järgmisi lehti:
@@ -10,91 +9,13 @@ See projekt on õppetöö raames loodud veebileht, mis sisaldab järgmisi lehti:
 - Külastajate bimekiri
 - Külaliste registreerimine
 - Eesti film
-- Filmiinimesed nimekiri
-- Filmiinimeste registreerimine
-- Ametid nimekiri
-- Ametite registreerimine
-
-## Nõuded
-
-- [Node.js](https://nodejs.org/) (soovitavalt v20 või uuem)
-- [npm](https://www.npmjs.com/)
-
----
-
-## Projekti seadistamine
-
-1. **Klooni repo oma arvutisse:**
-
-```bash
-git clone https://github.com/krist/TA_veeb.git
-cd TA_veeb
-```
-
-2. **Paigalda vajalikud paketid:**
-
-```bash
-npm install express
-npm install ejs
-```
-
-3. **Käivita server:**
-
-```bash
-node index.js
-```
-
-4. **Ava brauseris:**
-
-```bash
-http://localhost:5203
-```
-
-=======
-# TA Veebiprogrammeerimine 2025
-
-See projekt on õppetöö raames loodud veebileht, mis sisaldab järgmisi lehti:
-
-- Avaleht
-- Ajainfo
-- Vanasõnade nimekiri
-- Külastajate logimine
-- Külaliste nimekiri ja counter
-
-## Nõuded
-
-- [Node.js](https://nodejs.org/) (soovitavalt v20 või uuem)
-- [npm](https://www.npmjs.com/)
-
----
-
-## Projekti seadistamine
-
-1. **Klooni repo oma arvutisse:**
-
-```bash
-git clone https://github.com/krist/TA_veeb.git
-cd TA_veeb
-```
-
-2. **Paigalda vajalikud paketid:**
-
-```bash
-npm install express
-npm install ejs
-```
-
-3. **Käivita server:**
-
-```bash
-node index.js
-```
-
-4. **Ava brauseris:**
-
-```bash
-http://localhost:5203
-```
-
->>>>>>> a7ada98 (new stuff)
-## Autor: Kristi Markus
+- Eesti filmiinimesed
+- Eesti filmiinimeste lisamine
+- Eesti film ametite nimekiri
+- Eesti film ametite nimekiri lisamine
+- Eesti filmide nimekiri
+- Eesti filmide lisamine
+- Eesti filmi seosed
+- Eesti filmi seoste lisamine
+- Galerii
+- Fotode lisamine
