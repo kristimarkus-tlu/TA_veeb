@@ -22,5 +22,6 @@ const indexPage = async (req, res) => {
         if (conn) await conn.end();
     }
 }
+
 module.exports = { 
     indexPage };

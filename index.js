@@ -9,9 +9,6 @@ const dateEt = require("./src/dateTimeEt");
 const timeEt = require("./src/dateTimeEt");
 // käivitan express.js funktsiooni ja annan talle nimeks "app"
 const app = express();
-
-// toon galleryPage mooduli controlleritest
-//const { galleryPage } = require("./controllers/photouploadControllers");
 // määran veebilehtede mallide renderdamise mootori
 app.set("view engine", "ejs");
 // määran ühe päris kataloogi avalikult kättesaadavaks
@@ -19,25 +16,34 @@ app.use(express.static("public"));
 // parsime päringu URL-i, lipp false kui ainult tekst ja true kui muid andmeid ka
 // kui tuleb vormist text, siis false, muidu true
 app.use(bodyparser.urlencoded({extended: true}));
-
 // css
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+/* 
+--------> esialgne avalehe (index) versioon
+
+app.get("/", (req, res) => {
+    res.render("index")
+}); 
+
+--------> kui tahan andmebaasist pilti kuvada avalehele, aga see on controlleris:
+
 const { galleryPage } = require("./controllers/photouploadControllers");
 
-
-/* app.get("/", (req, res) => {
-    const galleryPage
-}); */
-
-// kasutab photoupControllers.js controllerite kaustas, et kasutada funktsiooni galleryPage
-/* app.get("/", (req, res) => {
+app.get("/", (req, res) => {
   galleryPage(req, res, "index");
 });
 
---------> tegin indexile oma routeri, kas parem nii või kasutada varasemast varianti????
- */
+--------> aga nüüd avaleht on nüüd gallery.ejs seega,
+
+--------> tegin indexile oma routeri, sest
+/gallery - kuvab 10 viimast avalikku fotot, 
+juhatab piltide laadimise lehele /gallery/gallery_add
+avalehel tahan kuvada ainult 1 pilti, edaspidi saab avalehega seotud funktsioonid koondada sinna
+ 
+*/
 
 // tegin indexile oma indexControllers.js ja indexRoutes.js
 const indexRouter = require("./routes/indexRoutes");

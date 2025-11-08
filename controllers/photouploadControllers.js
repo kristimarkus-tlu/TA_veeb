@@ -20,9 +20,7 @@ const galleryPage = async (req, res, viewName="gallery") => {
     }
 
     let conn;
-    //const sqlReq = "SELECT filename, altext FROM galleryphotos_TA WHERE privacy = 3 Order By id DESC LIMIT 1";
-    
-    // kuvan /galerii lehel avalikuks kasutamiseks mõeldud pildid, viimased lisatud enne
+    // kuvan /galerii lehel avalikud pildid, viimased 10 lisatud
     const sqlReq = "SELECT filename, altext FROM galleryphotos_TA WHERE privacy = 3 ORDER BY added DESC LIMIT 10";
 
     try {
@@ -71,12 +69,13 @@ const photouploadPagePost = async (req, res) => {
         await sharp(req.file.destination + fileName)
         .resize(800, 600)
 
-        // vesimärgi lisamine
+        // vesimärgi lisamine .composite (ühendamine)
         .composite([{
         input: "public/images/vp_logo_small.png", // vesimärgi asukoht
         gravity: "southeast", // paremasse alla nurka
         blend: "over" // Blending mode ülekattena, ehk paneb lihtsalt pildi peale
         }])
+
         .jpeg({quality:90})
         .toFile("public/gallery/normal/" + fileName);
         
